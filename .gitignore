@@ -1,0 +1,18 @@
+# Local-only Remotion explainer videos (not part of this repo)
+visuals/
+
+# Python
+__pycache__/
+*.py[oc]
+.venv/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Node (future TypeScript modules)
+node_modules/
+
+# OS / editor
+.DS_Store
+.env
