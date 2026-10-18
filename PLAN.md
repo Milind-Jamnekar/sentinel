@@ -29,8 +29,8 @@ Part IV — Agents                (NestJS)   Modules 10–14  → Sentinel ships
 | 5 | Complete `Value`: plain numbers, `- / **`, `exp`, `tanh`, `relu` | ✅ |
 | 6 | Gradient-checker tests | ✅ 8/8 green |
 | 7 | `Neuron`, `Layer`, `MLP` in `nn.py` | ✅ 15/15 green |
-| 8 | Training loop: forward, loss, `zero_grad`, backward, update. Reach loss < 0.01 | 👉 |
-| 9 | Hard extras: iterative topological sort for a 100k-node chain, why central difference is more accurate, find the learning rate where training diverges | ⬜ |
+| 8 | Training loop: forward, loss, `zero_grad`, backward, update. Reach loss < 0.01 | ✅ 18/18 green, final loss 0.0029 |
+| 9 | Hard extras: iterative topological sort for a 100k-node chain, why central difference is more accurate, find the learning rate where training diverges | 👉 |
 | 10 | Review and theory: how PyTorch scales this to billions of parameters (tensors, vectorized operations, GPUs) | ⬜ |
 
 **Done when:** an MLP trained only by your engine reaches loss < 0.01, and every gradient passes the numerical check.

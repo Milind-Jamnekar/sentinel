@@ -128,3 +128,11 @@ def test_diamond_and_accumulation():
     L = y + z
     L.backward()
     assert a.grad == 27.0
+
+def test_backward_handles_very_deep_graph():
+    x = Value(1.0)
+    y = x
+    for _ in range(100_000):
+        y = y + 1
+    y.backward()
+    assert x.grad == 1

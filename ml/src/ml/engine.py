@@ -101,15 +101,20 @@ class Value:
     def backward(self):
         topo = []
         visited = set()
+        stack = [(self, False)]
 
-        def build(v):
-            if v not in visited:
-                visited.add(v)
-                for child in v._prev:
-                    build(child)
+        while stack:
+            v, children_done = stack.pop()
+
+            if children_done:
                 topo.append(v)
 
-        build(self)
+            elif v not in visited:
+                visited.add(v)
+                stack.append((v, True))
+                for child in v._prev:
+                    stack.append((child, False))
+
         self.grad = 1.0
 
         for v in reversed(topo):
