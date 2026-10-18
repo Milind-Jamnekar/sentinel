@@ -17,7 +17,7 @@ Part IV — Agents                (NestJS)   Modules 10–14  → Sentinel ships
 
 ## Part I: How models work (Python, `ml/`)
 
-### Module 1: Autograd engine 👉
+### Module 1: Autograd engine ✅
 *What you're learning: derivatives, the chain rule, backprop, gradient descent. This is the mechanism that trains every model.*
 
 | Step | What | Status |
@@ -30,12 +30,12 @@ Part IV — Agents                (NestJS)   Modules 10–14  → Sentinel ships
 | 6 | Gradient-checker tests | ✅ 8/8 green |
 | 7 | `Neuron`, `Layer`, `MLP` in `nn.py` | ✅ 15/15 green |
 | 8 | Training loop: forward, loss, `zero_grad`, backward, update. Reach loss < 0.01 | ✅ 18/18 green, final loss 0.0029 |
-| 9 | Hard extras: iterative topological sort for a 100k-node chain, why central difference is more accurate, find the learning rate where training diverges | 👉 |
-| 10 | Review and theory: how PyTorch scales this to billions of parameters (tensors, vectorized operations, GPUs) | ⬜ |
+| 9 | Hard extras: iterative topological sort for a 100k-node chain, why central difference is more accurate, find the learning rate where training diverges | ✅ iterative backward handles 1M nodes; central difference error ∝ h² vs h; lr ≥ 0.5 saturates and freezes |
+| 10 | Review and theory: how PyTorch scales this to billions of parameters (tensors, vectorized operations, GPUs) | ✅ all 41 gradients match PyTorch; one step: 3 s in your engine vs 0.1 ms in PyTorch |
 
 **Done when:** an MLP trained only by your engine reaches loss < 0.01, and every gradient passes the numerical check.
 
-### Module 2: BPE tokenizer ⬜
+### Module 2: BPE tokenizer 👉 (next, when you're ready)
 *What you're learning: what tokens are, and why they drive cost, latency and the context limit.*
 1. Strings, Unicode and UTF-8 bytes: why byte-level encoding.
 2. Count adjacent pairs and merge the most frequent one; repeat for N merges.
