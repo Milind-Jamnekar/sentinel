@@ -1,6 +1,9 @@
 # Local-only Remotion explainer videos (not part of this repo)
 visuals/
 
+# Local-only learning notes and their PDF build (not part of this repo)
+notes/
+
 # Python
 __pycache__/
 *.py[oc]
