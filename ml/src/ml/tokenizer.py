@@ -127,7 +127,6 @@ class RegexTokenizer(BasicTokenizer):
         """A special string becomes its special id ONLY if it's in `allowed_special`.
         Otherwise it's encoded as plain text: the safe default for untrusted input like logs."""
         specials = {s: self.special_tokens[s] for s in allowed_special}
-        print("-...>", specials)
         if not specials:
             return self.encode_ordinary(text)
 

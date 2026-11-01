@@ -7,7 +7,7 @@
 Legend: ✅ done · 🟡 partly done · 👉 current · ⬜ not started
 
 ```
-Part I  — How models work      (Python)   Modules 1–4    ← YOU ARE HERE (Module 2)
+Part I  — How models work      (Python)   Modules 1–4    ← YOU ARE HERE (Module 3)
 Part II — Retrieval            (TS)       Modules 5–7
 Part III — LLM platform         (NestJS)   Modules 8–9
 Part IV — Agents                (NestJS)   Modules 10–14  → Sentinel ships
@@ -35,7 +35,7 @@ Part IV — Agents                (NestJS)   Modules 10–14  → Sentinel ships
 
 **Done when:** an MLP trained only by your engine reaches loss < 0.01, and every gradient passes the numerical check.
 
-### Module 2: BPE tokenizer 👉
+### Module 2: BPE tokenizer ✅
 *What you're learning: what tokens are, and why they drive cost, latency and the context limit.*
 
 | Step | What | Status |
@@ -46,11 +46,11 @@ Part IV — Agents                (NestJS)   Modules 10–14  → Sentinel ships
 | 4 | `encode`: replay merges in training order; round-trips any Unicode | ✅ |
 | 5 | `RegexTokenizer`: GPT-2 split pattern, merges never cross chunks | ✅ |
 | 6 | Train on logs, compare with tiktoken, dedupe chunks (49.9s → 3.2s) | ✅ ratio 2.04 vs GPT-4's 2.34; IDs are 31% of tokens |
-| 7 | Special tokens (`<|endoftext|>`) and why they're a security boundary | 👉 |
+| 7 | Special tokens (`<|endoftext|>`) and why they're a security boundary | ✅ untrusted text can't create special tokens; 45/45 green |
 
 **Done when:** `decode(encode(s)) == s` for random Unicode, and your tokenizer compresses logs better than raw bytes do.
 
-### Module 3: GPT from scratch, trained on logs ⬜
+### Module 3: GPT from scratch, trained on logs 👉
 *What you're learning: tensors, embeddings, attention, residual connections, layernorm, training loops in PyTorch.*
 1. PyTorch tensors: rebuild Module 1's MLP with `torch` and compare the gradients with yours.
 2. Generate the dataset: a synthetic log corpus (the start of the Arena).
