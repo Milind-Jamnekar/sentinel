@@ -10,7 +10,7 @@ def test_neuron_matches_hand_calculation():
     n.b = Value(-1.5)
     out = n([1.5, 0.8, 0.3])
     print(out.data)
-    assert abs(out.data - math.tanh(2.33)) < 1e-9      # ≈ 0.98, the video example
+    assert abs(out.data - math.tanh(2.33)) < 1e-9
 
 
 def test_neuron_rejects_wrong_input_size():
@@ -44,4 +44,4 @@ def test_zero_grad_resets_everything():
 
 def test_parameter_count():
     mlp = MLP(3, [4, 4, 1])
-    assert len(mlp.parameters()) == 41  # 👉 count it by hand and put your number here
+    assert len(mlp.parameters()) == 41

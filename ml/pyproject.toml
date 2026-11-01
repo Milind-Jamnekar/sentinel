@@ -7,7 +7,9 @@ authors = [
     { name = "Milind Jamnekar", email = "milindjamnekar502@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "regex>=2026.9.29",
+]
 
 [project.scripts]
 ml = "ml:main"
@@ -20,6 +22,7 @@ build-backend = "uv_build"
 dev = [
     "numpy>=2.5.4",
     "pytest>=9.1.1",
+    "tiktoken>=0.14.0",
     "torch>=2.14.1",
 ]
 

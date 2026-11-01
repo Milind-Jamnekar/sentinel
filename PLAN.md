@@ -7,7 +7,7 @@
 Legend: ✅ done · 🟡 partly done · 👉 current · ⬜ not started
 
 ```
-Part I  — How models work      (Python)   Modules 1–4    ← YOU ARE HERE
+Part I  — How models work      (Python)   Modules 1–4    ← YOU ARE HERE (Module 2)
 Part II — Retrieval            (TS)       Modules 5–7
 Part III — LLM platform         (NestJS)   Modules 8–9
 Part IV — Agents                (NestJS)   Modules 10–14  → Sentinel ships
@@ -35,13 +35,18 @@ Part IV — Agents                (NestJS)   Modules 10–14  → Sentinel ships
 
 **Done when:** an MLP trained only by your engine reaches loss < 0.01, and every gradient passes the numerical check.
 
-### Module 2: BPE tokenizer 👉 (next, when you're ready)
+### Module 2: BPE tokenizer 👉
 *What you're learning: what tokens are, and why they drive cost, latency and the context limit.*
-1. Strings, Unicode and UTF-8 bytes: why byte-level encoding.
-2. Count adjacent pairs and merge the most frequent one; repeat for N merges.
-3. `encode()` and `decode()` that round-trip any string, including emoji.
-4. Special tokens (`<|endoftext|>`) and a regex pre-split, the way GPT-style tokenizers work.
-5. Train it on log data and measure the compression ratio. Compare with `tiktoken`.
+
+| Step | What | Status |
+|---|---|---|
+| 1 | Strings, Unicode and UTF-8 bytes: why byte-level encoding | ✅ |
+| 2 | `get_stats` and `merge`: count adjacent pairs, merge the most frequent | ✅ |
+| 3 | `BasicTokenizer`: `train`, `decode` | ✅ |
+| 4 | `encode`: replay merges in training order; round-trips any Unicode | ✅ |
+| 5 | `RegexTokenizer`: GPT-2 split pattern, merges never cross chunks | ✅ |
+| 6 | Train on logs, compare with tiktoken, dedupe chunks (49.9s → 3.2s) | ✅ ratio 2.04 vs GPT-4's 2.34; IDs are 31% of tokens |
+| 7 | Special tokens (`<|endoftext|>`) and why they're a security boundary | 👉 |
 
 **Done when:** `decode(encode(s)) == s` for random Unicode, and your tokenizer compresses logs better than raw bytes do.
 

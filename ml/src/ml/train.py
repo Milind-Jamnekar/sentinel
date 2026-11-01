@@ -21,13 +21,9 @@ def train(steps: int = 100, lr: float = 0.1, seed: int = 3) -> float:
     last_loss = float("inf")
     for step in range(steps):
         # 1. FORWARD: one prediction per example
-        #    hint: call mlp(x) for every x in xs, collect them in a list
         ypred = [mlp(x) for x in xs] # TODO
 
         # 2. LOSS: sum of squared errors, one number for "how wrong"
-        #    hint: pair each prediction with its target (zip),
-        #          compute (prediction - target) ** 2, then sum them all
-
         loss = sum(((y - pred) ** 2 for y, pred in zip(ys,ypred)),Value(0.0))
 
         # 3. ZERO_GRAD: wipe old gradients (your _backward uses +=)
@@ -37,7 +33,6 @@ def train(steps: int = 100, lr: float = 0.1, seed: int = 3) -> float:
         loss.backward()
 
         # 5. UPDATE: turn every knob a little, against its gradient
-        #    hint: loop over mlp.parameters(), and for each p:  p.data -= lr * p.grad
         for p in mlp.parameters():
             p.data -= lr * p.grad
 
